@@ -1,0 +1,231 @@
+/* Stylish portfolio styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap');
+
+:root{
+  /* color palette */
+  --bg:linear-gradient(135deg, #0f172a 0%, #0b1226 50%), radial-gradient(circle at 10% 10%, rgba(255,255,255,0.02), transparent 10%);
+  --card:rgba(255,255,255,0.06);
+  --card-plain:#fff;
+  --accent-1:#7ee7c3; /* mint */
+  --accent-2:#ffd166; /* warm */
+  --muted:rgba(255,255,255,0.75);
+  --max:1100px;
+  --glass:rgba(255,255,255,0.06);
+  --shadow:0 8px 24px rgba(2,6,23,0.45);
+  --transition:all 0.32s cubic-bezier(.2,.9,.2,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100vh;display:flex;flex-direction:column}
+body{
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:var(--bg);
+  background-attachment:fixed;
+  color:var(--muted);
+  line-height:1.6;
+  animation:fadeIn 850ms ease-in;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  flex:1;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+main{flex:1}
+
+.site-header{background:linear-gradient(180deg, rgba(6,8,20,0.66), rgba(6,8,20,0.34));backdrop-filter:blur(8px);padding:0.6rem 0;position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(255,255,255,0.03)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{font-weight:700;font-size:1.15rem;color:var(--card-plain);font-family:'Poppins', Inter, sans-serif}
+nav a{margin-left:0.75rem;color:rgba(255,255,255,0.92);text-decoration:none;padding:0.4rem 0.75rem;border-radius:999px;transition:var(--transition);font-weight:600;background:transparent}
+nav a:hover{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:rgba(3,6,10,0.95);transform:translateY(-3px);box-shadow:0 10px 24px rgba(2,6,23,0.45)}
+nav a.active{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:rgba(3,6,10,0.95)}
+
+.hero{padding:4rem 0;text-align:center;background:linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);border-radius:20px;margin:1rem 0}
+.hero h1{font-size:2.5rem;margin-bottom:1rem;color:#fff;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
+.hero img{border-radius:50%;box-shadow:var(--shadow);transition:var(--transition);max-width:100%;height:auto;margin:1rem 0}
+.hero img:hover{transform:scale(1.05);}
+.lead{color:#fff;margin-bottom:1rem}
+.cta .btn{display:inline-block;margin:0 0.5rem;padding:0.8rem 1.5rem;border-radius:25px;background:linear-gradient(45deg, var(--accent), #ffa726);color:#fff;text-decoration:none;font-weight:600;transition:var(--transition);box-shadow:var(--shadow)}
+.cta .btn:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,0.2)}
+.cta .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.5)}
+.cta .btn.ghost:hover{background:rgba(255,255,255,0.2)}
+
+.summary{padding:2rem 0;text-align:center}
+.summary h2{margin-bottom:1rem;color:#fff;font-size:2rem;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
+.summary p{color:#fff;font-size:1.2rem;font-family:'Times New Roman', Times, serif;line-height:1.6;max-width:800px;margin:0 auto}
+.skills{list-style:none;display:flex;gap:0.8rem;margin-top:1rem;justify-content:center}
+.skills li{background:linear-gradient(45deg, #f093fb, #f5576c);padding:0.5rem 1rem;border-radius:20px;color:#fff;font-size:0.95rem;transition:var(--transition)}
+.skills li:hover{transform:scale(1.1)}
+
+.about{text-align:center;padding:2rem 0}
+.about h1{font-size:2.5rem;margin-bottom:1rem;color:#fff;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
+.about h2{font-size:1.8rem;margin:2rem 0 1rem;color:#fff}
+.about p{color:#fff;margin-bottom:1rem;line-height:1.6}
+.about ul{list-style:none;padding:0;text-align:left;display:inline-block;margin:1rem 0}
+.about li{background:linear-gradient(45deg, #f093fb, #f5576c);padding:0.5rem 1rem;border-radius:20px;color:#fff;margin:0.5rem 0;display:block}
+.skills li:hover{transform:scale(1.1)}
+
+.projects{padding:2rem 0;text-align:center}
+.projects h1{font-size:2.5rem;margin-bottom:1rem;color:#fff;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
+.projects p{color:#fff;margin-bottom:2rem;font-size:1.1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:1.5rem;margin-top:1rem;justify-items:center}
+.card{background:linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);padding:1.5rem;border-radius:15px;box-shadow:var(--shadow);transition:var(--transition);text-align:center;backdrop-filter:blur(10px)}
+.card:hover{transform:translateY(-10px);box-shadow:0 12px 24px rgba(0,0,0,0.2)}
+.card h3{margin-bottom:0.5rem;color:#333;font-size:1.2rem}
+.card p{color:#555;font-size:0.95rem;margin-bottom:1rem}
+.link{color:var(--accent);text-decoration:none;font-weight:600;padding:0.5rem 1rem;border-radius:20px;background:linear-gradient(45deg, var(--accent), #ffa726);color:#fff;display:inline-block;transition:var(--transition)}
+.link:hover{transform:scale(1.05);box-shadow:0 4px 8px rgba(0,0,0,0.1)}
+
+/* Card image/body layout and responsive ordering */
+.card-thumb{margin-bottom:0.75rem}
+.card-thumb img{width:100%;height:auto;border-radius:10px;display:block}
+.card-body{display:block}
+
+
+.site-footer{padding:2rem 0;color:#fff;text-align:center;background:rgba(0,0,0,0.8);border-top:5px solid var(--accent)}
+.site-footer h2{margin-bottom:1rem;text-align:center}
+.profile-links{display:flex;justify-content:center;gap:2rem;margin-top:1rem}
+.profile-links a{transition:var(--transition)}
+.profile-links a:hover{transform:scale(1.1)}
+.site-footer img{width:80px;height:80px;border-radius:10px;box-shadow:var(--shadow);transition:var(--transition);max-width:100%;height:auto;object-fit:contain}
+.site-footer img:hover{transform:scale(1.05)}
+
+
+/* Tablet */
+@media (max-width:1024px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:2rem}
+  .hero img{width:200px;height:200px}
+}
+
+/* Small tablet / large phone */
+@media (max-width:768px){
+  .container{padding:0.75rem}
+  .brand{font-size:1rem}
+  .grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .hero{padding:3rem 0}
+  .hero h1{font-size:1.8rem}
+  .hero img{width:150px;height:150px}
+  .lead{font-size:0.98rem}
+  .skills{flex-wrap:wrap}
+}
+
+/* Mobile */
+@media (max-width:480px){
+  .container{padding:0.5rem}
+  .nav-wrap{align-items:center}
+  nav{display:none}
+  .menu-btn{display:block}
+
+  /* Projects: single column cards, images contained */
+  .grid{grid-template-columns:1fr;gap:1rem}
+  .card{padding:1rem}
+  .card img{max-width:100%;height:auto;display:block;margin:0 auto 0.75rem;object-fit:cover;border-radius:10px}
+
+  /* ensure on phones the content comes first, image moves below */
+  .card{display:flex;flex-direction:column}
+  .card-body{order:1}
+  .card-thumb{order:2}
+
+  .skills{flex-direction:column;gap:0.5rem}
+  .hero{padding:1rem 0}
+  .hero h1{font-size:1.4rem}
+  .hero img{max-width:140px;height:auto;margin:0.75rem auto}
+  .cta .btn{display:block;margin:0.5rem auto;width:80%;font-size:0.9rem}
+
+  /* Footer: keep profile links horizontal with overflow to avoid long vertical stacking */
+  .site-footer a{display:inline-flex;margin:0 0.5rem}
+  .profile-links{display:flex;gap:1rem;overflow-x:auto;justify-content:center;padding:0.25rem 0;white-space:nowrap;-webkit-overflow-scrolling:touch}
+  .profile-links a{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-width:56px}
+  .site-footer img{width:50px;height:50px;margin:0.25rem;border-radius:10px;object-fit:contain}
+
+  .about h1{font-size:1.8rem}
+  .about h2{font-size:1.3rem}
+  .about ul{text-align:center}
+  .about{padding:1rem 0}
+  .summary h2{font-size:1.5rem}
+  .summary p{font-size:0.95rem}
+  .summary{padding:1rem 0}
+  .projects h1{font-size:1.6rem}
+  .projects p{font-size:0.9rem}
+  .projects{padding:1rem 0}
+}
+
+/* Mobile menu when toggled */
+body.nav-open nav{
+  display:block;
+  position:absolute;
+  left:0;right:0;top:64px;
+  background:var(--card);
+  padding:1rem;
+  box-shadow:0 6px 18px rgba(15,23,42,0.08);
+}
+body.nav-open nav a{display:block;margin:0.25rem 0}
+
+/* menu button */
+.menu-btn{display:none;background:transparent;border:0;padding:0.25rem 0.5rem;border-radius:6px}
+.menu-btn:focus{outline:2px solid rgba(11,116,222,0.2)}
+.menu-btn .hamburger{display:inline-block;width:22px;height:2px;background:#111827;position:relative}
+.menu-btn .hamburger::before,.menu-btn .hamburger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:#111827}
+.menu-btn .hamburger::before{top:-7px}
+.menu-btn .hamburger::after{top:7px}
+
+/* Additional visual polish (no HTML changes) */
+/* Nav underline animation */
+nav a{
+  position:relative;
+  padding:0.4rem 0.6rem;
+}
+nav a::after{
+  content:'';
+  position:absolute;
+  left:12%;
+  right:12%;
+  bottom:-6px;
+  height:3px;
+  background:linear-gradient(90deg, rgba(255,107,107,0.9), rgba(255,166,38,0.9));
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform 280ms cubic-bezier(.2,.9,.2,1);
+  border-radius:4px;
+  opacity:0.95;
+}
+nav a:hover::after, nav a.active::after{transform:scaleX(1)}
+
+/* Brand styling */
+.brand{font-family:inherit;letter-spacing:0.6px;font-size:1.15rem}
+
+/* subtle header shadow when scrolled (works with sticky header) */
+.site-header{box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+
+/* Hero refinement */
+.hero{padding:5rem 0;border-radius:18px}
+.hero h1{font-weight:700;letter-spacing:0.4px}
+.hero .lead{opacity:0.95}
+
+/* Card lift animation */
+@keyframes floatUp{from{transform:translateY(6px)}to{transform:translateY(0)}}
+.card{animation:floatUp 420ms ease both}
+
+/* Tighter card layout on wide screens */
+.grid{align-items:start}
+.card{max-width:420px}
+
+/* Profile links: capsule style */
+.profile-links a{background:rgba(255,255,255,0.06);padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.06)}
+.profile-links a img{display:block}
+
+/* Make footer sit visually closer to bottom on short pages */
+.site-footer{padding-top:1.25rem;padding-bottom:1.25rem}
+
+/* Improve focus outlines for accessibility */
+a:focus, button:focus{outline:3px solid rgba(255,166,38,0.18);outline-offset:3px}
+
+/* Slight typography scale adjustments */
+h1{line-height:1.05}
+h2{line-height:1.15}
+
+
